@@ -860,6 +860,71 @@
   <p id="congress-info">© Copyright 2024 All rights reserved</p>
 </div>
 
+<button id="scrollToTopBtn" onclick="scrollToTop()">&uArr;</button>
+<script>
+// Function to handle scroll behavior
+function scrollToTop() {
+    // Scroll to the top of the document with smooth behavior
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Event listener to show/hide scroll-to-top button based on scroll position
+window.addEventListener('scroll', function() {
+    var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    // Show button after scrolling down 300px
+    if (window.scrollY > 300) {
+        scrollToTopBtn.style.display = "block";
+    } else {
+        scrollToTopBtn.style.display = "none";
+    }
+});
+
+
+</script>
+<!-- WhatsApp Integration Button with Tooltip -->
+<div id="whatsapp-button" class="tooltip">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Logo" style="width: 50px; height: 50px; cursor: pointer;">
+  <span class="tooltiptext">Need Help?</span>
+  <div id="whatsapp-message" style="display: none;">Hi *Wow congress*! I need more info about Wow congress https://wowcongress.com</div>
+</div>
+
+<script>
+  // Function to open WhatsApp chat with specified message
+function openWhatsAppChat() {
+  // Replace '1234567890' with your WhatsApp number
+  var phoneNumber = '+971547086278';
+  
+  // Get the message from the hidden div
+  var message = document.getElementById('whatsapp-message').innerText;
+  
+  // Encode the message for use in URL
+  var encodedMessage = encodeURIComponent(message);
+
+  // Construct the WhatsApp URL with phone number and message
+  var whatsappURL = 'https://wa.me/' + 971547086278 + '/?text=' + encodedMessage;
+
+  // Open the WhatsApp chat window in a new tab
+  window.open(whatsappURL, '_blank');
+}
+
+// Event listener to open WhatsApp chat when button is clicked
+document.getElementById('whatsapp-button').addEventListener('click', function() {
+  // Open WhatsApp chat with specified message
+  openWhatsAppChat();
+  
+  // Hide the tooltip after button click
+  var tooltip = document.querySelector('.tooltip .tooltiptext');
+  if (tooltip) {
+    tooltip.style.visibility = 'hidden';
+    tooltip.style.opacity = 0;
+  }
+});
+
+</script>
 
   
 
